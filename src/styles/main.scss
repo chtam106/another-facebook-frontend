@@ -1,0 +1,64 @@
+// Variables
+$primary-color: #1877f2;
+$secondary-color: #42b72a;
+$text-color: #1c1e21;
+$border-radius: 8px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-base {
+  padding: 8px 16px;
+  border-radius: $border-radius;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+// Nesting example
+.app-container {
+  @include flex-center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    h1 {
+      color: $text-color;
+      margin-bottom: 20px;
+    }
+    
+    .button-group {
+      @include flex-center;
+      gap: 10px;
+      
+      .primary-button {
+        @include button-base;
+        background-color: $primary-color;
+        color: white;
+        
+        &:hover {
+          background-color: $primary-color;
+        }
+      }
+      
+      .secondary-button {
+        @include button-base;
+        background-color: $secondary-color;
+        color: white;
+        
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+  }
+} 
